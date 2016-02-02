@@ -1,0 +1,9 @@
+Building Dreamcoin
+
+See doc/readme-qt.rst for instructions on building Dreamcoin QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Dreamcoin.
+
+See doc/build-*.txt for instructions on building Dreamcoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Dreamcoin.
