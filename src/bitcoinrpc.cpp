@@ -306,6 +306,13 @@ static const CRPCCommand vRPCCommands[] =
     { "resendtx",               &resendtx,               false,  true},
     { "makekeypair",            &makekeypair,            false,  true},
     { "sendalert",              &sendalert,              false,  false},
+    { "getnewstealthaddress",   &getnewstealthaddress,   false,  false}, //stealth address rpc command
+    { "liststealthaddresses",   &liststealthaddresses,   false,  false}, //stealth address rpc command
+    { "importstealthaddress",   &importstealthaddress,   false,  false}, //stealth address rpc command
+    { "sendtostealthaddress",   &sendtostealthaddress,   false,  false}, //stealth address rpc command
+    { "clearwallettransactions",&clearwallettransactions,false,  false}, //stealth address rpc command
+    { "scanforalltxns",         &scanforalltxns,         false,  false}, //stealth address rpc command
+    { "scanforstealthtxns",     &scanforstealthtxns,     false,  false}, //stealth address rpc command
 };
 
 CRPCTable::CRPCTable()
@@ -1233,6 +1240,9 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "signrawtransaction"     && n > 1) ConvertTo<Array>(params[1], true);
     if (strMethod == "signrawtransaction"     && n > 2) ConvertTo<Array>(params[2], true);
     if (strMethod == "keypoolrefill"          && n > 0) ConvertTo<boost::int64_t>(params[0]);
+
+//send to stealth addr parameter conversion
+    if (strMethod == "sendtostealthaddress"   && n > 1) ConvertTo<double>(params[1]);
 
     return params;
 }
